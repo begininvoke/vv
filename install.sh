@@ -153,7 +153,7 @@ download_xui(){
 panel_config() {
 
     /usr/local/x-ui/x-ui setting -username admin -password admin >/dev/null 2>&1
-    /usr/local/x-ui/x-ui setting -port ${50011} >/dev/null 2>&1
+    /usr/local/x-ui/x-ui setting -port 50011 >/dev/null 2>&1
 }
 
 install_xui() {
@@ -243,15 +243,15 @@ install_xui() {
 
 show_login_info(){
     if [[ -n $v4 && -z $v6 ]]; then
-        echo -e "Panel IPv4 login address is: ${GREEN}http://$v4:$config_port ${PLAIN}"
+        echo -e "Panel IPv4 login address is: ${GREEN}http://$v4:50011 ${PLAIN}"
     elif [[ -n $v6 && -z $v4 ]]; then
         echo -e "Panel IPv6 login address is: ${GREEN}http://[$v6]:$config_port ${PLAIN}"
     elif [[ -n $v4 && -n $v6 ]]; then
-        echo -e "Panel IPv4 login address is: ${GREEN}http://$v4:$config_port ${PLAIN}"
-        echo -e "Panel IPv6 login address is: ${GREEN}http://[$v6]:$config_port ${PLAIN}"
+        echo -e "Panel IPv4 login address is: ${GREEN}http://$v4:50011 ${PLAIN}"
+        echo -e "Panel IPv6 login address is: ${GREEN}http://[$v6]:50011 ${PLAIN}"
     fi
-    echo -e "Username: ${GREEN}$config_account ${PLAIN}"
-    echo -e "Password: ${GREEN}$config_password ${PLAIN}"
+    echo -e "Username: ${GREEN}admin${PLAIN}"
+    echo -e "Password: ${GREEN}admin ${PLAIN}"
 }
 
 install_xui $1
